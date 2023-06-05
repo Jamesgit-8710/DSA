@@ -11,4 +11,5 @@ arr.splice(0,1);
 arr.push(temp);
 
 console.log(arr);
+console.log(arr);
 
