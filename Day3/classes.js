@@ -19,3 +19,4 @@ class oops{
 obj = new oops(2,5);
 
 console.log(obj.publicMethod())
+
