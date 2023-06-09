@@ -1,18 +1,10 @@
-// Book class
-class Book {
-    constructor(title, author, isbn) {
-        this.title = title;
-        this.author = author;
-        this.isbn = isbn;
-    }
-}
 
 // Library class
 class Library {
 
-    static Books = [{ title: "John", author: "xyz", id: 5454 }, { title: "james", author: "xyz", id: 1212 }];
+    static Books = [{ title: "The India Story", author: "Bimal Jalal", bookId: 5454 }, { title: "A Place Called Home", author: "Preeti Shenoy", bookId: 1212 }];
 
-    static issued = [{ bookId: 5454, name: "james", date: "25 June 2023" }, { bookId: 5454, name: "james", date: "25 June 2023" }]
+    static issued = [{ bookId: 5454, issuedTo: "james", date: "25 June 2023" }, { bookId: 5884, issuedTo: "james", date: "25 June 2023" }]
 
 
     static async addBook() {
@@ -52,7 +44,7 @@ class Library {
 
 
 
-        this.Books.push({ title: this.title, author: this.author, id: parseInt(this.id) });
+        this.Books.push({ title: this.title, author: this.author, bookId: parseInt(this.id) });
 
 
         const chalk = require('chalk');
@@ -83,14 +75,18 @@ class Library {
 
         const getUserInput = async () => {
 
-            this.id = await getInput("Enter the book Id: ");
+            this.id = await getInput("\nEnter the book Id to be removed: ");
 
             rl.close();
 
-            this.Books = this.Books.filter((b) => b.id !== this.id);
+            this.Books = this.Books.filter((b) => b.bookId !== parseInt(this.id));
         };
 
         await getUserInput();
+
+        const chalk = require('chalk');
+
+        console.log(chalk.bgYellow.black('\nbook removed from library.'));
 
         let obj = new lms();
         obj.librarian();
@@ -121,8 +117,8 @@ class Library {
                 if (i === 1) {
                     this.id = await getInput(`\nEnter the book Id : `);
                 } else if (i === 2) {
-                    this.n = await getInput(`Enter the name : `);
-                } 
+                    this.n = await getInput(`Enter the name to be issued : `);
+                }
             }
 
             rl.close();
@@ -135,7 +131,7 @@ class Library {
         const date = currentDate.toLocaleDateString(undefined, options);
 
 
-        this.issued.push({ bookId: parseInt(this.id), author: this.n, id: date });
+        this.issued.push({ bookId: parseInt(this.id), issuedTo: this.n, date: date });
 
 
         const chalk = require('chalk');
@@ -190,17 +186,32 @@ class Library {
         await collectInputs();
 
 
-        
-        this.issued = this.issued.filter((b) => b.bookId !== this.id);
+
+        this.issued = this.issued.filter((b) => b.bookId !== parseInt(this.id));
 
 
         const chalk = require('chalk');
 
-        console.log(chalk.bgYellow.black('\nBook issued'));
+        console.log(chalk.bgYellow.black('\n\n Book returned'));
 
 
         let obj = new lms();
         obj.librarian();
+    }
+
+    static display() {
+        if (this.Books.length === 0) {
+            const chalk = require('chalk');
+
+            console.log(chalk.red("No books in the library."));
+
+        } else {
+            console.log("\nLibrary Books:");
+            this.Books.forEach((book) => {
+                console.log(book);
+            });
+        }
+
     }
 
     static displayBooks() {
@@ -247,7 +258,8 @@ class lms {
             } else if (userInput === '2') {
                 this.librarian();
             } else {
-                console.log("\nkindly enter the valid input !!!!!!!!!!\n");
+                const chalk = require('chalk');
+                console.log(chalk.red("\nkindly enter the valid input !!!!!!!!!!\n"))
                 this.check();
             }
 
@@ -276,9 +288,10 @@ class lms {
                 console.log(chalk.red("\nYou are exit.\n"));
 
             } else if (userInput === '1') {
-                Library.displayBooks();
+                Library.display();
             } else {
-                console.log("\nkindly enter the valid input !!!!!!!!!!\n")
+                const chalk = require('chalk');
+                console.log(chalk.red("\nkindly enter the valid input !!!!!!!!!!\n"))
                 this.student();
             }
 
@@ -317,7 +330,8 @@ class lms {
             } else if (userInput === '6') {
                 Library.issuedBooks();
             } else {
-                console.log("\nkindly enter the valid input !!!!!!!!!!\n")
+                const chalk = require('chalk');
+                console.log(chalk.red("\nkindly enter the valid input !!!!!!!!!!\n"))
                 this.librarian();
             }
 
