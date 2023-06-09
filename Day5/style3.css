@@ -1,0 +1,77 @@
+.main-div{
+    margin: 40px 50px 0px 50px;
+}
+
+li{
+    display: block;
+}
+
+a{
+    color: black;
+}
+
+.navbar-nav{
+    display: flex;
+    /*flex-direction: row;*/
+}
+
+.nav-item{
+    margin: 30px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.btn{
+    padding: 25px 45px;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-top: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.blackWhite{
+    background-color: black;
+    color: white;
+}
+
+.whiteBlack{
+    background-color: white;
+    color: black;
+    border: 1;
+}
+
+.inline{
+    display: inline-block;
+}
+
+.nav2{
+    float: right;
+}
+
+.row{
+    display: flex;
+    margin-top: 70px;
+}
+
+.width50{
+    width: 50%;
+}
+
+.relative{
+    position: relative;
+    top: 20%;
+    left: 3%;
+    width: 60%;
+}
+
+.heading{
+    font-size: 3.5rem;
+}
+
+.subHeading{
+    margin-top: 30px;
+
+}
+
+

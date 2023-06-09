@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.bgColor{
+    background-color: #062863;
+}
+
+.auto{
+    margin: auto;
+    display: block;
+}
+
+.left{
+    float: left;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.input{
+    border: 0px;
+    height: 2.5rem;
+    width: 92%;
+    background-color: rgb(234, 240, 245);
+    border-radius: 3px 3px 3px 0px;
+    padding-left: 1.5rem;
+}
+
+.logInTop{
+    height: 200px;
+    display: flex;
+}
+
+.logo{
+    
+}
+
+.logInBody{
+     height: calc(100vh - 200px);
+     display: flex;
+     flex-direction: column;
+}
+
+.main{
+    height: 350px;
+    width: 330px;
+    background-color: white;
+    border-radius: 15px 15px 15px 0px;
+    text-align: center;
+    padding: 2rem;
+
+}
+
+.logIn{
+    background-color: #083E9E;
+    color: white;
+    border: 0px;
+    height: 2.5rem;
+    width: 99%;
+    margin-top: 3rem;
+    border-radius: 7px 7px 7px 0px;
+}
+
+.logH{
+    color: #083E9E;
+}
+
+
+.logSubH{
+    color: rgb(158, 161, 167);
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
+.logBottom{
+    height: 200px;
+    font-size: 0.9rem;
+    color: rgb(146, 146, 146);
+    font-weight: 500;
+    text-align: center;
+}
+
+.forgot{
+    margin-top: 6px;
+}
+
+.register{
+    color: white;
+}
+
